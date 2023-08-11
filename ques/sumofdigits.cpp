@@ -24,5 +24,4 @@ cout<<"enter the digit"<<endl;
 cin>>n;
 cout<<"the result of sum and product is "<<sumofdig(n);
 return 0;
-
 }
