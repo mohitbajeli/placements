@@ -28,7 +28,7 @@ int book(int arr[],int n,int m){
     }
     int ans=0;
     int e=sum;
-    int mid=s+(sum-s)/2;
+    int mid=s+(e-s)/2;
     while(s<=e){
         if(ispossible(arr,n,m,mid)){
             ans=mid;
@@ -47,7 +47,7 @@ using namespace std;
 
 int main()
 {
-    int arr[4]={10,20,30,40};
+    int arr[4]={5,5,5,5};
     int m=2;
    cout<<"minimum is "<<book(arr,4,m);
 }
