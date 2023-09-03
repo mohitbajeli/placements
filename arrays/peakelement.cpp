@@ -25,7 +25,7 @@ using namespace std;
 
 int main()
 {
-int arr[]={1,2,3,4,5,3,2,1};
-cout<<"peak element is "<<peak(arr,8);
+int arr[]={0,3,5,2,1};
+cout<<"peak element is "<<peak(arr,5);
 return 0;
 }
