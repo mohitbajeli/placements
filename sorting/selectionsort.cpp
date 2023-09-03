@@ -2,6 +2,7 @@
 
 void swap(int *a,int *b){
     int temp;
+
     temp=*a;
     *a=*b;
     *b=temp;
@@ -20,16 +21,16 @@ void selectionsort(int arr[],int n){
     }
 }
 
+
 using namespace std;
 
 int main(){
-    int arr[]={7,1,4,3,2};
+    int arr[]={7,1,3,2,4,5};
 
-    selectionsort(arr,5);
-
-    cout<<"sorted array is "<<endl;
-
-    for(int i=0;i<5;i++){
-        cout<<arr[i]<<" ";
-    }
+   cout<<"sorted array is"<<endl;
+   
+   selectionsort(arr,6);
+   for(int i=0;i<6;i++){
+      cout<<arr[i]<<" ";
+   }
 }

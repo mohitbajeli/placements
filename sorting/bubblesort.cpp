@@ -5,14 +5,12 @@ void swap(int *a,int *b){
     temp=*a;
     *a=*b;
     *b=temp;
-
 }
 
 void bubblesort(int arr[],int n){
 
     for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i-1;j++)
-        {
+        for(int j=0;j<n-i-1;j++){
             if(arr[j]>arr[j+1]){
                 swap(&arr[j],&arr[j+1]);
             }
@@ -24,15 +22,15 @@ void bubblesort(int arr[],int n){
 using namespace std;
 
 
-int main()
-{
-    int arr[]={6,3,2,7,1,2};
-
-    bubblesort(arr,6);
+int main(){
+    int arr[]={7,5,3,2,1};
 
     cout<<"sorted array is "<<endl;
 
-    for(int i=0;i<6;i++){
+   bubblesort(arr,5);
+
+    for(int i=0;i<5;i++){
         cout<<arr[i]<<" ";
     }
+
 }
