@@ -15,13 +15,13 @@ int pivot(int arr[],int n)
         }
         mid=start+(end-start)/2;
     }
-    return start;
+    return mid;
 }
 
 using namespace std;
 
 int main(){
-    int arr[5]={3,8,10,17,1};
+    int arr[5]={7,8,1,2,3};
     cout<<"pivot element is "<<pivot(arr,5);
     return 0;
 }
