@@ -22,7 +22,7 @@ class Node{
     }
 };
 
-void deleteatposition(Node* &head,int pos){
+void deleteatposition(Node* &head,Node *&tail,int pos){
     if(pos==1){
         Node *temp =head;
         head=temp->next;
@@ -39,6 +39,11 @@ void deleteatposition(Node* &head,int pos){
             prev=curr;
             curr=curr->next;
             cnt++;
+        }
+        if(curr->next==NULL){
+            tail=prev;
+            prev->next=NULL;
+            return;
         }
         prev->next = curr->next;
         curr->next = NULL;
@@ -79,8 +84,9 @@ InsertAtHead(head,24);
 print(head);
 InsertAtTail(tail,34);
 print(head);
-deleteatposition(head,1);
+deleteatposition(head,tail,3);
 print(head);
-
+cout<<"head = "<<head->data;
+cout<<"tail = "<<tail->data;
 return 0;
 }
