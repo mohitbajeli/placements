@@ -47,6 +47,7 @@ void InsertAttail(Node* &head,Node* &tail,int data){
     }
     Node *temp = new Node(data);
     tail->next = temp;
+    temp->prev=tail;
     tail = temp;
 }
 
