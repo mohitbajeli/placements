@@ -46,6 +46,26 @@ void insertatposition(Node * &head,Node* &tail,int pos,int data){
     temp->next = newnode;
     
 }
+
+Node *getlist(Node* &head){
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    if(head->next->next==NULL){
+        return head->next; 
+    }
+    Node* fast=head->next;
+    Node* slow = head;
+    while(fast!=NULL){
+        fast=fast->next;
+        if(fast!=NULL){
+            fast=fast->next;
+        }
+        slow=slow->next;
+    }
+    return slow;
+}
+
 void print(Node * &head){
     Node *temp = head;
     while(temp!=NULL){
@@ -68,6 +88,7 @@ InsertAtTail(tail,12);
 print(head);
 insertatposition(head,tail,3,17);
 print(head);
-
+Node *list = getlist(head);
+cout<<list->data;
 
 }

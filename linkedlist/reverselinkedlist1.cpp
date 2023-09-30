@@ -46,6 +46,22 @@ void insertatposition(Node * &head,Node* &tail,int pos,int data){
     temp->next = newnode;
     
 }
+
+Node *reverselinkedlist(Node* &head){
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *forward;
+    while(curr!=NULL){
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+    }
+    return prev;
+}
 void print(Node * &head){
     Node *temp = head;
     while(temp!=NULL){
@@ -69,5 +85,7 @@ print(head);
 insertatposition(head,tail,3,17);
 print(head);
 
+head = reverselinkedlist(head);
+print(head);
 
 }

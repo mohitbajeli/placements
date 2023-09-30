@@ -46,6 +46,28 @@ void insertatposition(Node * &head,Node* &tail,int pos,int data){
     temp->next = newnode;
     
 }
+int getlength(Node* &head){
+    int cnt=0;
+    Node* temp = head;
+    while(temp!=NULL){
+        cnt++;
+        temp=temp->next;
+    }
+    return cnt;
+
+}
+
+Node *getlist(Node* &head){
+    int len = getlength(head);
+    int ans = (len/2)+1;
+    Node *temp = head;
+    int cnt=1;
+    while(cnt<ans){
+       temp=temp->next;
+       cnt++;
+    }
+    return temp;
+}
 void print(Node * &head){
     Node *temp = head;
     while(temp!=NULL){
@@ -68,6 +90,7 @@ InsertAtTail(tail,12);
 print(head);
 insertatposition(head,tail,3,17);
 print(head);
-
+Node *list = getlist(head);
+cout<<list->data;
 
 }
