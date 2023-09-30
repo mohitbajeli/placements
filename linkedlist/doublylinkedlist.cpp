@@ -92,9 +92,10 @@ void deletenode(Node* &head,Node* &tail,int pos){
         curr = curr->next;
         cnt++;
       }  
-     curr->prev = NULL;
-     temp->next = curr->next;
-     curr->next=NULL;
+    temp->next = curr->next;
+    curr->next->prev = temp;
+    curr->prev-NULL;
+    curr->next=NULL;
      delete curr;
 
     }
@@ -125,6 +126,6 @@ print(head);
 
 InsertAtposition(head,tail,3,67);
 print(head);
-deletenode(head,tail,1);
+deletenode(head,tail,3);
 print(head);
 }
