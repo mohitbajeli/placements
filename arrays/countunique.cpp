@@ -23,6 +23,6 @@ int unique(int arr[],int n){
 }
 
 int main(){
-    int arr[]={1,2,3,1,3,5,6,3,1,8};
-    cout<<"unique elements are"<<unique(arr,10);
+    int arr[]={4,2,3,4};
+    cout<<"unique elements are"<<unique(arr,4);
 }
