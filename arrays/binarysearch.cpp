@@ -36,5 +36,5 @@ int main()
 {
 int arr[]={3,5,9,13,27};
 
-cout<<"key is at the position "<<binary(arr,5,13)+1;
+cout<<"key is at the position "<<binary(arr,5,13);
 }
