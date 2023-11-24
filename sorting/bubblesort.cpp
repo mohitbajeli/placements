@@ -17,7 +17,7 @@ void bubblesort(int arr[],int n){
                 flag=true;
             }
         }
-        if(flag){
+        if(flag==false){
             break;
         }
     }
