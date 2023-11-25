@@ -24,10 +24,25 @@ while(s<=e){
 return ans;
 }
 
+double ans(long long int a,int precision,int n)
+{
+    double factor=1;
+    double ans=a;
+    for(int i=0;i<precision;i++){
+       factor=factor/10;
+       
+       for(double j=ans;j*j<n;j=j+factor){
+           ans=j;
+       }
+    }
+    return ans;
+}
+
 using namespace std;
 
 int main()
 {
-    int n=64;
-    cout<<"square root is "<<binarysearch(n);
+    int n=37;
+    long long int a = binarysearch(n);
+    cout<<"square root is "<<ans(a,3,n);
 }
