@@ -18,14 +18,14 @@ int main(){
             {
             swap=num[j];
             num[j]=num[j+1];
-            num[j+i]=swap;
+            num[j+1]=swap;
         }
     }
     }
     printf("sorted element \n");
     for(i=0;i<n;i++)
     {
-    printf("%d",num[i]);
+    printf("%d ",num[i]);
     }
     
     return 0;
