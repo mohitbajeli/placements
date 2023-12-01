@@ -16,7 +16,7 @@ void word(vector<char>&s){
     vector<char>temp;
     int len=s.size();
     for(int i=0;i<len;i++){
-        if(s[i]==" " || s[i]=='\0'){
+        if(s[i]==' ' || s[i]=='\0'){
             reverse(temp);
             temp="";
         }
@@ -27,7 +27,7 @@ void word(vector<char>&s){
 }
 
 int main(){
-vector<char>s=["i"," ","l","o","v","e"," ","y","o","u"];
+vector<char>s={'i',' ','l','o','v','e',' ','y','o','u'};
 cout<<"reverse string is "<<endl;
 for(int i=0;i<s.size();i++){
     cout<<s[i];
