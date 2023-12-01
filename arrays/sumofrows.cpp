@@ -11,7 +11,6 @@ void sumcolumn(int arr[][3],int m,int n){
         cout<<"sum of "<<i+1<<" column is "<<sum<<endl;
     }
 }
-
 void sumrow(int arr[][3],int m,int n){
     for(int i=0;i<m;i++){
         int sum=0;
@@ -20,6 +19,7 @@ void sumrow(int arr[][3],int m,int n){
         }
         cout<<"sum of "<<i+1<<" row is "<<sum<<endl;
     }
+
 }
 
 
