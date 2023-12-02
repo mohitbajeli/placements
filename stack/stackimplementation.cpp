@@ -2,12 +2,13 @@
 
 using namespace std;
 
-class stack{
+class Stack{
     int *arr;
     int top;
     int size;
 
-    stack(int size){
+public:
+    Stack(int size){
         this->size=size;
         arr = new int[size];
         top=-1;
@@ -50,9 +51,14 @@ class stack{
             return false;
         }
     }
-}
+};
 
 int main(){
+Stack st(5);
 
+st.push(22);
+st.push(43);
+st.push(56);
+cout<<st.peek();
 }
 
