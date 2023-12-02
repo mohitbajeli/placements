@@ -8,7 +8,7 @@ bool binarysearch(int arr[][3],int n,int m,int key){
     int mid=s+(e-s)/2;
 
     while(s<=e){
-        int element = arr[mid/n][mid%m];
+        int element = arr[mid/m][mid%m];
         if(element==key){
             return true;
         }

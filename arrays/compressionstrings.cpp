@@ -36,6 +36,6 @@ int compress(vector<char>&chars){
 }
 
 int main(){
-vector<char>ans={'a','a','b','b'};
+vector<char>ans={'a','a','a','a','b','b'};
 cout<<"the size is "<<compress(ans);
 }
