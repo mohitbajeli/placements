@@ -60,5 +60,6 @@ st.push(22);
 st.push(43);
 st.push(56);
 cout<<st.peek();
+
 }
 
