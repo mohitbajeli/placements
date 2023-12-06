@@ -24,16 +24,14 @@ class Node{
 
 void deleteatposition(Node* &head,Node *&tail,int pos){
     if(pos==1){
-        Node *temp =head;
+        Node* temp=head;
         head=temp->next;
         temp->next=NULL;
-        delete temp;
+        delete(temp);
     }
     else{
-        //deleting at middle or last
-        Node *curr = head;
-        Node *prev = NULL;
-
+        Node* prev=NULL;
+        Node* curr=head;
         int cnt=1;
         while(cnt<pos){
             prev=curr;
@@ -41,13 +39,16 @@ void deleteatposition(Node* &head,Node *&tail,int pos){
             cnt++;
         }
         if(curr->next==NULL){
-            tail=prev;
-            prev->next=NULL;
-            return;
+               prev->next=curr->next;
+               tail=prev;
+               delete(curr);
+
         }
-        prev->next = curr->next;
-        curr->next = NULL;
-        delete curr;
+        else{
+            prev->next=curr->next;
+            curr->next=NULL;
+            delete(curr);
+        }
     }
 }
 
