@@ -5,127 +5,113 @@ using namespace std;
 class Node{
     public:
     int data;
-    Node *prev;
-    Node *next;
+    Node* next;
+    Node* prev;
 
     Node(int data){
-        this->data = data;
-        this->prev = NULL;
-        this->next = NULL;
+        this->data=data;
+        this->next=NULL;
+        this->prev=NULL;
     }
 
     ~Node(){
         int val = this->data;
-        if(next!=NULL){
-            delete next;
-            next = NULL;
-        
+        if(this->next!=NULL){
+            this->next=NULL;
+            delete(next);
         }
-        cout<<"memory freed with node "<<val<<endl;
+        cout<<"memory freed "<<val<<endl;
     }
 };
 
-void InsertAtHead(Node* &head,Node * &tail,int data){
+
+void insertathead(Node* &head,int data){
     if(head==NULL){
-       Node *temp = new Node(data);
-       head=temp;
-       tail = temp;
+        Node *temp=new Node(data);
+        head=temp; 
     }
     else{
-   Node *temp = new Node(data);
-   temp->next = head;
-   head = temp;
-   
+        Node* temp=head;
+        Node* newnode = new Node(data);
+        newnode->next=temp;
+        temp->prev=newnode;
+        head=newnode;
     }
 }
 
-void InsertAttail(Node* &head,Node* &tail,int data){
-    if(head==NULL){
-        Node *temp = new Node(data);
-        tail=temp;
-        head=temp;
-    }
-    Node *temp = new Node(data);
-    tail->next = temp;
-    temp->prev=tail;
-    tail = temp;
+void insertatposition(Node* &head,int data,int pos){
+if(pos==1){
+    insertathead(head,data);
 }
-
-void InsertAtposition(Node* &head,Node* &tail,int pos,int data){
-    if(pos == 1){
-        InsertAtHead(head,tail,data);
-        return ; 
-    }
+else{
     int cnt=1;
-    Node *temp = head;
+    Node* temp=head;
     while(cnt<pos-1){
       temp=temp->next;
       cnt++;
     }
-    if(temp->next == NULL){
-        InsertAttail(head,tail,data);
-        return ;
-    }
-    Node *newnode = new Node(data);
-    newnode->next = temp->next;
-    temp->next->prev = newnode;
-    temp->next=newnode;
-    newnode->prev=temp;
-
-
-}
-
-void deletenode(Node* &head,Node* &tail,int pos){
-    if(pos==1){
-    Node* temp = head;
-    temp->next->prev = NULL;
-    head=temp->next;
-    temp->next=NULL;
-    delete temp;
+    if(temp->next==NULL){
+        Node* newnode = new Node(data);
+        temp->next=newnode;
+        newnode->prev=temp;
     }
     else{
-      Node* curr = head;
-      Node* temp = NULL;
-      int cnt =1;
-      while(cnt<pos){
-        temp = curr;
-        curr = curr->next;
-        cnt++;
-      }  
-    temp->next = curr->next;
-    curr->next->prev = temp;
-    curr->prev-NULL;
-    curr->next=NULL;
-     delete curr;
-
+        Node* newnode = new Node(data);
+        newnode->next = temp->next;
+        newnode->prev=temp;
+        temp->next->prev = newnode;
+        temp->next=newnode;
     }
 }
+}
+void deletenode(Node* &head,int pos){
+if(pos==1){
+    Node* temp=head;
+    temp->next->prev=NULL;
+    head=temp->next;
+    temp->next=NULL;
+    delete(temp);
+}
+else{
+    Node* prev=NULL;
+    Node* curr=head;
+    int cnt=1;
+    while(cnt<pos){
+        prev=curr;
+        curr=curr->next;
+        cnt++;
+    }
+    if(curr->next=NULL){
+        prev->next=NULL;
+        curr->prev=NULL;
+        delete(curr);
+    }
+    else{
+       prev->next=curr->next;
+       curr->next->prev=prev;
+       curr->prev=NULL;
+       curr->next=NULL;
+       delete(curr);
+    }
 
-void print(Node * &head){
+}
+}
+void print(Node* &head){
     Node *temp = head;
     while(temp!=NULL){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
     cout<<endl;
-
 }
-
 int main(){
-Node *node1 = new Node(10);
-
-Node *head = node1;
-Node *tail = node1;
+Node* node1=new Node(10);
+Node* head=node1;
 print(head);
-InsertAtHead(head,tail,23);
+insertathead(head,3);
 print(head);
-InsertAtHead(head,tail,24);
+insertatposition(head,56,3);
 print(head);
-InsertAttail(head,tail,25);
-print(head);
-
-InsertAtposition(head,tail,3,67);
-print(head);
-deletenode(head,tail,3);
+deletenode(head,3);
 print(head);
 }
