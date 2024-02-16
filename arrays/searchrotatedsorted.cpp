@@ -1,63 +1,57 @@
 #include<bits/stdc++.h>
 
-int binary(int arr[],int low,int high,int key)
-{
-    
-    
-    int mid =low+ (high-low)/2;  //if we do (low+high)/2 then at one time it will go greater than 2pow31-1.
-    while(low<=high)
-    {
-    
-
-       if(arr[mid]==key)
-       {
-        return mid;
-        break;
-       }
-       else if(arr[mid]<key)
-       {
-        low=mid+1;
-       }
-       else if(arr[mid]>key)
-       {
-        high = mid-1; 
-       }
-        mid =low+ (high-low)/2;
-    }
-    return -1;
-}
-
-int getpivot(int arr[],int n){
-    int start=0;
-    int end=n-1;
-    int mid=start+(end-start)/2;
-    while(start<end){
-        if(arr[mid]>=arr[0]){
-            start=mid+1;
-        }
-        else{
-            end=mid;
-        }
-        mid=start+(end-start)/2;
-    }
-    return start;
-}
-
-int  search(int arr[],int n,int key){
-    int pivot= getpivot(arr,n);
-    if(key>=arr[pivot] && key<arr[n-1]){
-        return binary(arr,pivot,n-1,key);
-    }
-    else{
-        return binary(arr,0,pivot-1,key);
-    }
-}
-
 using namespace std;
 
-int main()
-{
+int binarysearch(int arr[],int start,int end,int key){
+    int s=start;
+    int e=end;
+    int mid=s+(e-s)/2;
+
+    while(s<=e){
+        if(arr[mid]==key){
+            return 1;
+        }
+        else if(arr[mid]<key){
+            s=mid+1;
+        }
+        else{
+            e=mid-1;
+        }
+        mid=s+(e-s)/2;
+    }
+    return 0;
+}
+
+int pivot(int arr[],int n){
+    int s=0;
+    int e=n-1;
+    int mid=s+(e-s)/2;
+    while(s<e){
+        if(arr[mid]>=arr[0]){
+            s=mid+1;
+        }
+        else{
+            e=mid;
+        }
+        mid=s+(e-s)/2;
+    }
+    return mid;
+}
+int main(){
 int arr[5]={7,9,1,2,3};
-cout<<"element is at "<<search(arr,5,3);
-return 0;
+int target = 27;
+int element = pivot(arr,5);
+int ans=0;
+if(arr[element]<target && target<arr[4]){
+    ans=binarysearch(arr,element,4,target);
+}
+else{
+   ans= binarysearch(arr,0,element-1,target);
+}
+if(ans){
+    cout<<"present"<<endl;
+}
+else{
+    cout<<"absent ";
+}
 }
