@@ -1,30 +1,31 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
-void movingzeroes(vector<int>&ans){
-    int i=0;
 
-    for(int j=0;j<ans.size();j++){
-        if(ans[j]==0){
-            i=j;
-            break;
-        }
-    }
-    for(int j=i+1;j<ans.size();j++){
-        if(ans[j]!=0){
-            swap(ans[i],ans[j]);
-            i++;
-        }
+
+void zeroes(int arr[],int n){
+    int j=0;
+for(int i=0;i<n;i++){
+    if(arr[i]==0){
+        j=i;
+        break;
     }
 }
 
+for(int i=j+1;i<n;i++){
+    if(arr[i]!=0){
+        swap(arr[i],arr[j]);
+        j++;
+    }
+}
+}
 
 int main(){
-vector<int>a={0,1,0,3,12};
-
-movingzeroes(a);
-cout<<"updated array is "<<endl;
-for(int i=0;i<a.size();i++){
-    cout<<a[i]<<" ";
+int arr[5]={1,0,0,2,3};
+zeroes(arr,5);
+cout<<"array is "<<endl;
+for(int i=0;i<5;i++){
+    cout<<arr[i]<<" ";
 }
 }
