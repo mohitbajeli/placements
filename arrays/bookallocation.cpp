@@ -42,7 +42,6 @@ int allocation(int arr[],int n,int m){
     }
     return ans;
 }
-
 int main(){
     int arr[]={10,20,30,40};
     cout<<"max no of pages allocated which is minimum is "<<allocation(arr,4,2);
