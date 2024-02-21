@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void insertionsort(int arr[],int n){
+void insertion(int arr[],int n){
     for(int i=1;i<n;i++){
         int temp=arr[i];
         int j=i-1;
@@ -19,13 +19,13 @@ void insertionsort(int arr[],int n){
     }
 }
 
-int main()
-{
-int arr[]={4,3,2,5,6};
+int main(){
+    int arr[]={4,2,1,3,5,6};
+    insertion(arr,6);
 
-cout<<"sorted array is "<<endl;
-insertionsort(arr,5);
-for(int i=0;i<5;i++){
-    cout<<arr[i]<<" ";
-}
+    cout<<"sorted array is "<<endl;
+    for(int i=0;i<6;i++){
+        cout<<arr[i]<<" ";
+    }
+
 }
