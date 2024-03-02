@@ -4,17 +4,16 @@ int main(){
     
     printf("enter the string :");
     gets(s1);
-    int i=0;
+    
     int len=0;
-    while(s1[i]!='\0'){
+    while(s1[len]!='\0'){
         len++;
-        i++;
     }
     int j=len-1;
     int count=0;
-    int k=0;
-    while(k<=j){
-        if(s1[k]!=s1[j]){
+    int i=0;
+    while(i<=j){
+        if(s1[i]!=s1[j]){
             count=1;
             break;
         }
