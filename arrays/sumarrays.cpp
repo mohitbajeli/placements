@@ -9,7 +9,8 @@ int sumarray(vector<int>nums1,vector<int>nums2){
     for(int i=0;i<nums1.size();i++){
         res1=(res1*10)+nums1[i];
     }
-    for(int i=0;i<nums2.size();i++){
+    for(int i=0;i<nums2.size();i++){1.c
+    
         res2=(res2*10)+nums2[i];
     }
 

@@ -11,13 +11,12 @@ int main(){
     int i,j;
     
     j=0;
-     i=start-1;
-     while(s1[i]!='\0'&& end>=start)
+     for(i=start;i<=end;i++)
      {
         substr[j]=s1[i];
-        i++;
+        
         j++;
-        end--;
+        
      }
     substr[j]='\0';
     printf("sub-string extracting from the main string: %s\n",substr);
