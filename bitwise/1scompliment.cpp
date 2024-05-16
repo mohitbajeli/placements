@@ -2,31 +2,17 @@
 
 using namespace std;
 
-int bitscomplement(int n)
-{
-    int m=n;
 
+int main(){
+    int n;
+    cout<<"enter the number "<<endl;
+    cin>>n;
     int mask=0;
-    if(n==0)
-    {
-        return 1;
-    }
-    while(m!=0)
-    {
+    int m=n;
+    while(m!=0){
         mask=(mask<<1)|1;
         m=m>>1;
     }
-    int ans = (~n)&mask;
-
-    return ans;
-
-}
-
-int main()
-{
-    int n;
-    cout<<"enter the value of n"<<endl;
-    cin>>n;
-    cout<<"ones complement is "<<bitscomplement(n);
-    return 0;
+  int ans = mask&(~n);
+  cout<<ans;
 }
